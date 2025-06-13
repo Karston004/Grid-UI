@@ -19,18 +19,17 @@ public class HexGridCanvas extends AbstractGridCanvas {
 
     double rFromWidth  = getWidth() / (Math.sqrt(3) * grid.length + 0.5 * Math.sqrt(3));
     double rFromHeight = getHeight() / (1.5 * (grid[0].length - 1) + 2);
-
-
     
     double r = Math.min(rFromWidth, rFromHeight);
     double apothem = r * Math.sqrt(3)/2;
 
-    
+    double offsetX = (getWidth()-(grid.length*2+1)*apothem)/2;
+    double offsetY = (getHeight()-r*(1.5*(grid[0].length-1)+2))/2;
 
 
     for (int x = 0; x < grid.length; x++) {
         for (int y = 0; y < grid[0].length; y++) {
-            drawHex(g2D, apothem + x*apothem*2 + apothem*(y%2), r+ y*r*1.5, r, colorMap.get(grid[x][y]));
+            drawHex(g2D, apothem+offsetX + x*apothem*2 + apothem*(y%2), offsetY+ r + y*r*1.5, r, colorMap.get(grid[x][y]));
             }
         }
     }
