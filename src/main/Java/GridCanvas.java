@@ -11,8 +11,6 @@ public class GridCanvas extends JPanel {
 
     int gridX = 10;
     int gridY = 10;
-    int cellSize = 30;
-    int tileSize = 28;
     GridCanvas(){
 
     }
@@ -24,6 +22,7 @@ public class GridCanvas extends JPanel {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
     
+    int cellSize = Math.min(getWidth()/gridX, getHeight()/gridY);
 
     int offsetX = (getWidth() - gridX*cellSize)/2;
     int offsetY = (getHeight()- gridY*cellSize)/2;
@@ -31,7 +30,7 @@ public class GridCanvas extends JPanel {
     for (int x = 0; x < gridX; x++) {
         for (int y = 0; y < gridY; y++) {
             g2D.setColor(Color.BLACK); // Set colour for pixel.
-            g2D.fillRect(offsetX+ x * cellSize, offsetY + y * cellSize, tileSize, tileSize);
+            g2D.fillRect(offsetX+ x * cellSize, offsetY + y * cellSize, cellSize - 1, cellSize -1);
             }
         }
     }
