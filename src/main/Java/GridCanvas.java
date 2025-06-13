@@ -1,4 +1,4 @@
-package src.main.Java;
+package src.main.java;
 
 import javax.swing.JPanel;
 
@@ -9,6 +9,10 @@ import java.awt.Graphics2D;
 //A Panel used for displaying grids using 2D graphics 
 public class GridCanvas extends JPanel {
 
+    int gridX = 10;
+    int gridY = 10;
+    int cellSize = 30;
+    int tileSize = 28;
     GridCanvas(){
 
     }
@@ -20,10 +24,14 @@ public class GridCanvas extends JPanel {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
     
-    for (int x = 0; x < 10; x++) {
-        for (int y = 0; y < 10; y++) {
+
+    int offsetX = (getWidth() - gridX*cellSize)/2;
+    int offsetY = (getHeight()- gridY*cellSize)/2;
+
+    for (int x = 0; x < gridX; x++) {
+        for (int y = 0; y < gridY; y++) {
             g2D.setColor(Color.BLACK); // Set colour for pixel.
-            g2D.fillRect(x * 3, y * 3, 2, 2);
+            g2D.fillRect(offsetX+ x * cellSize, offsetY + y * cellSize, tileSize, tileSize);
             }
         }
     }
