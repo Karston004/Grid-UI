@@ -8,8 +8,25 @@ import java.awt.GridBagLayout;
 import javax.swing.BorderFactory;
 
 public class MainPanel extends JPanel {
+    GridCanvas mainCanvas;
     MainPanel () {
         super(new GridBagLayout());
-        this.setBorder(BorderFactory.createLineBorder(Color.RED));
+        setBorder(BorderFactory.createLineBorder(Color.RED));
+
+        addMainCanvas(0, 0);
     }
+
+    void addMainCanvas(int gridx, int gridy){
+        mainCanvas = new GridCanvas();
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 1;
+        c.weighty = 1;
+        c.gridx = gridx;
+        c.gridy = gridy;
+        add(mainCanvas, c);
+    }
+
+
+
 }
