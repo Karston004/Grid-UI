@@ -1,25 +1,20 @@
 package src.main.java;
 //This is the main class used to start the system and initalize the other classes
 
-import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import java.awt.Color;
 import java.awt.Frame;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
-public class GridUI {
+public class GridUI {   
     JFrame mainFrame;
-    JPanel mainPanel;
+    MainPanel mainPanel;
+
     public static void main(String[] args) {
         new GridUI();
     }
 
     GridUI(){
         createFrame(1080, 720);
-        createGridBagLayout(mainFrame);
+        createMainPanel(mainFrame);
 
         mainFrame.setVisible(true);
     }
@@ -29,9 +24,8 @@ public class GridUI {
         mainFrame.setSize(width,height);
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    void createGridBagLayout(Frame frame) {
-        mainPanel = new JPanel(new GridBagLayout());
-        mainPanel.setBorder(BorderFactory.createLineBorder(Color.RED));
+    void createMainPanel(Frame frame) {
+        mainPanel = new MainPanel();
         frame.add(mainPanel);
     }
 }
