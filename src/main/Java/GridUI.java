@@ -10,14 +10,14 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-public class GRID_UI {
+public class GridUI {
     JFrame mainFrame;
     JPanel mainPanel;
     public static void main(String[] args) {
-        new GRID_UI();
+        new GridUI();
     }
 
-    GRID_UI(){
+    GridUI(){
         createFrame(1080, 720);
         createGridBagLayout(mainFrame);
 
