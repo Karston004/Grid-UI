@@ -3,6 +3,7 @@ package src.main.java;
 import javax.swing.JPanel;
 
 import src.main.java.gridCanvas.AbstractGridCanvas;
+import src.main.java.gridCanvas.HexGridCanvas;
 import src.main.java.gridCanvas.SqaureGridCanvas;
 
 import java.awt.Color;
@@ -29,7 +30,7 @@ public class MainPanel extends JPanel {
     }
 
     void addMainCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap){
-        gridCanvas = new SqaureGridCanvas(gridx, gridy, colorMap);
+        gridCanvas = new HexGridCanvas(gridx, gridy, colorMap);
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1;
