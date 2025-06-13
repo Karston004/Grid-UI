@@ -8,16 +8,16 @@ public abstract class AbstractGridCanvas extends JPanel {
     HashMap<Integer, Color> colorMap;
     int grid[][];
 
-    protected AbstractGridCanvas (int gridx, int gridy, HashMap<Integer, Color> colorMap) {
+    public AbstractGridCanvas (int gridx, int gridy, HashMap<Integer, Color> colorMap) {
         grid = new int[gridx][gridy];
         this.colorMap = colorMap;
     }
 
-    protected void updateColorMap(HashMap<Integer, Color> colorMap){
+    public void updateColorMap(HashMap<Integer, Color> colorMap){
         this.colorMap = colorMap;
     }
 
-    protected void SetGrid(int g[][]){
+    public void SetGrid(int g[][]){
         //Check input
         if (g == null || g.length == 0 || g[0] == null) 
             throw new IllegalArgumentException("Input grid is empty or null: 2D not null array expected");
