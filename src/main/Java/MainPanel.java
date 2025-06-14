@@ -23,23 +23,34 @@ public class MainPanel extends JPanel {
         HashMap<Integer, Color> defaultColorMap = new HashMap<Integer,Color>();
         defaultColorMap.put(0, Color.GRAY);
         defaultColorMap.put(1, Color.BLACK);
-        addMainCanvas(0, 0, defaultColorMap);
+        addMainCanvas(1, 1, defaultColorMap);
         
         int[][] exampleGrid = {{1,1,0,0},{1,0,0,1},{0,0,1,1},{0,1,1,1}};
         gridCanvas.SetGrid(exampleGrid);
+
+        addToolBar(1, 0);
     }
 
     void addMainCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap){
-        gridCanvas = new HexGridCanvas(gridx, gridy, colorMap);
+        gridCanvas = new HexGridCanvas(0, 0, colorMap);
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
-        c.weightx = 1;
-        c.weighty = 1;
+        c.weightx = 10;
+        c.weighty = 10;
         c.gridx = gridx;
         c.gridy = gridy;
         add(gridCanvas, c);
     }
 
-
+    void addToolBar(int gridx, int gridy){
+        ToolBar toolBar = new ToolBar();
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = gridx;
+        c.gridy = gridy;
+        add(toolBar,c);
+    }
 
 }
