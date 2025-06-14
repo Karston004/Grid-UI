@@ -25,7 +25,7 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
     for (int x = 0; x < grid.length; x++) {
         for (int y = 0; y < grid[0].length; y++) {
             g2D.setColor(colorMap.get(grid[x][y])); // Set colour for tile based on colorMap
-            g2D.fillRect(offsetX+ x * cellSize, offsetY + y * cellSize, cellSize - 1, cellSize -1);
+            g2D.fillRect(offsetX+ x * cellSize, offsetY + y * cellSize, (int)(cellSize * 0.95), (int)(cellSize * 0.95));
             }
         }
     }
