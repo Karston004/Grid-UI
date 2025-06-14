@@ -19,16 +19,20 @@ public class MainPanel extends JPanel {
         super(new GridBagLayout());
         setBorder(BorderFactory.createLineBorder(Color.RED));
 
-
-        HashMap<Integer, Color> defaultColorMap = new HashMap<Integer,Color>();
-        defaultColorMap.put(0, Color.GRAY);
-        defaultColorMap.put(1, Color.BLACK);
-        addMainCanvas(1, 1, defaultColorMap);
+        addMainCanvas(1, 1, defaultColorMap());
+        addToolBar(1, 0);
         
+        //Example grid
         int[][] exampleGrid = {{1,1,0,0},{1,0,0,1},{0,0,1,1},{0,1,1,1}};
         gridCanvas.SetGrid(exampleGrid);
 
-        addToolBar(1, 0);
+    }
+
+    HashMap<Integer, Color> defaultColorMap(){
+        HashMap<Integer, Color> defaultColorMap = new HashMap<Integer,Color>();
+        defaultColorMap.put(0, Color.GRAY);
+        defaultColorMap.put(1, Color.BLACK);
+        return defaultColorMap;
     }
 
     void addMainCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap){
