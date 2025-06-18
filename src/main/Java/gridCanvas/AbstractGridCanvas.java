@@ -2,15 +2,35 @@ package src.main.java.gridCanvas;
 
 import java.util.HashMap;
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JPanel;
 
-public abstract class AbstractGridCanvas extends JPanel {
+
+public abstract class AbstractGridCanvas extends JPanel{
     HashMap<Integer, Color> colorMap;
     int grid[][];
 
     public AbstractGridCanvas (int gridx, int gridy, HashMap<Integer, Color> colorMap) {
         grid = new int[gridx][gridy];
         this.colorMap = colorMap;
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                mPressed(e);
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                mReleased(e);
+            }
+
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                mDragged(e);
+            }
+        });
     }
 
     public void updateColorMap(HashMap<Integer, Color> colorMap){
@@ -28,6 +48,10 @@ public abstract class AbstractGridCanvas extends JPanel {
         grid = g;
     }
 
+    protected abstract void mPressed(MouseEvent e);
+    protected abstract void mReleased(MouseEvent e);
+    protected abstract void mDragged(MouseEvent e);
+    
     //Classes that extend this should override the paintComponent
     
 } 
