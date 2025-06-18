@@ -12,8 +12,8 @@ public abstract class AbstractGridCanvas extends JPanel{
     HashMap<Integer, Color> colorMap;
     int grid[][];
 
-    public AbstractGridCanvas (int gridx, int gridy, HashMap<Integer, Color> colorMap) {
-        grid = new int[gridx][gridy];
+    public AbstractGridCanvas (int gridWidth, int gridHeight, HashMap<Integer, Color> colorMap) {
+        grid = new int[gridWidth][gridHeight];
         this.colorMap = colorMap;
         addMouseListener(new MouseAdapter() {
             @Override
