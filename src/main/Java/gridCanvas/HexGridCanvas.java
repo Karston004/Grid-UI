@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.HashMap;
+import java.awt.event.MouseEvent;
 
 public class HexGridCanvas extends AbstractGridCanvas {
 
@@ -51,6 +52,19 @@ public class HexGridCanvas extends AbstractGridCanvas {
         g2D.setColor(color);
         g2D.fillPolygon(hex);
     }
+
+
+    @Override
+    protected void mPressed(MouseEvent e){
+    };
+    
+    @Override
+    protected void mReleased(MouseEvent e){
+    };
+
+    @Override
+    protected void mDragged(MouseEvent e){
+    };
 }
 
 

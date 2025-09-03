@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.HashMap;
+import java.awt.event.MouseEvent;
 
 //A Panel used for displaying grids using 2D graphics 
 public class SqaureGridCanvas extends AbstractGridCanvas {
@@ -29,5 +30,16 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
             }
         }
     }
+    @Override
+    protected void mPressed(MouseEvent e){
+    };
     
+    @Override
+    protected void mReleased(MouseEvent e){
+    };
+
+    @Override
+    protected void mDragged(MouseEvent e){
+    };
+
 }

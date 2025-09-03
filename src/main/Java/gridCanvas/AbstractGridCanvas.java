@@ -15,7 +15,7 @@ public abstract class AbstractGridCanvas extends JPanel{
     public AbstractGridCanvas (int gridWidth, int gridHeight, HashMap<Integer, Color> colorMap) {
         grid = new int[gridWidth][gridHeight];
         this.colorMap = colorMap;
-        /*addMouseListener(new MouseAdapter() {
+        addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
                 mPressed(e);
@@ -31,7 +31,6 @@ public abstract class AbstractGridCanvas extends JPanel{
                 mDragged(e);
             }
         });
-        */
     }
 
     public void updateColorMap(HashMap<Integer, Color> colorMap){
@@ -49,9 +48,9 @@ public abstract class AbstractGridCanvas extends JPanel{
         grid = g;
     }
 
-    //protected abstract void mPressed(MouseEvent e);
-    //protected abstract void mReleased(MouseEvent e);
-    //protected abstract void mDragged(MouseEvent e);
+    protected abstract void mPressed(MouseEvent e);
+    protected abstract void mReleased(MouseEvent e);
+    protected abstract void mDragged(MouseEvent e);
     
     //Classes that extend this should override the paintComponent
     
