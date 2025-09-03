@@ -22,8 +22,14 @@ public class ToolBar extends JPanel {
         buttons = new ArrayList<JButton>();
     }
 
-    void setButtonsColor(Color color){
+    void setDefualtButtonsColor(Color color){
         defualtButtonColor = color;
+    }
+
+    void setAllButtonsColor(Color c){
+        for (int i = 0; i < buttons.size(); i++){
+            buttons.get(i).setBackground(c);
+        }
     }
 
     void createButton(int gridx, int gridy, String text){
