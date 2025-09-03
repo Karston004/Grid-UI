@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class ToolBar extends JPanel {
     //Class Attributes
-    Color defualtButtonColor = Color.white;
-    ArrayList<JButton> buttons;
+    private Color defualtButtonColor = Color.white;
+    public ArrayList<JButton> buttons;
 
 
     ToolBar () {
@@ -32,9 +32,16 @@ public class ToolBar extends JPanel {
         }
     }
 
-    void createButton(int gridx, int gridy, String text){
+    void createButton(int gridx, int gridy, String text, int width, int height){
         JButton newButton = new JButton("text");
         newButton.setBackground(defualtButtonColor);
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.weightx = 0;
+        c.weighty = 0;
+        c.gridx = gridx;
+        c.gridy = gridy;
+        newButton.setPreferredSize(new Dimension(width,height));
         buttons.add(newButton);
     }
 
