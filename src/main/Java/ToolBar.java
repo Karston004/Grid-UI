@@ -43,7 +43,7 @@ public class ToolBar extends JPanel {
         c.gridy = gridy;
         newButton.setPreferredSize(new Dimension(width,height));
         buttons.add(newButton);
-        add(newButton);
+        add(newButton,c);
     }
 
     /* 

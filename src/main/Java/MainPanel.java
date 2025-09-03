@@ -14,7 +14,10 @@ import java.util.HashMap;
 import javax.swing.BorderFactory;
 
 public class MainPanel extends JPanel {
+    //Attributes
     AbstractGridCanvas gridCanvas;
+    ToolBar toolBarTop;
+    ToolBar toolBarSide;
 
     //Construtor
     MainPanel () {
@@ -22,7 +25,10 @@ public class MainPanel extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.RED));
 
         addMainCanvas(1, 1, defaultColorMap());
-        addToolBar(1, 0);
+        toolBarTop = addToolBar(1, 0);
+        addExampleButtons1(toolBarTop);
+        toolBarSide = addToolBar(2, 1);
+        addExampleButtons2(toolBarSide);
         
         //Example grid - temp code
         int[][] exampleGrid = {{1,1,0,0},{1,0,0,1},{0,0,1,1},{0,1,1,1}};
@@ -54,7 +60,7 @@ public class MainPanel extends JPanel {
 
     //Creates ToolBar
     // gridx/gridy is x y postion on main panel's gridBagLayout
-    void addToolBar(int gridx, int gridy){
+    ToolBar addToolBar(int gridx, int gridy){
         ToolBar toolBar = new ToolBar();
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
@@ -62,15 +68,21 @@ public class MainPanel extends JPanel {
         c.weighty = 0;
         c.gridx = gridx;
         c.gridy = gridy;
-        addExampleButtons(toolBar);
         add(toolBar,c);
+        return toolBar;
     }
 
-    void addExampleButtons(ToolBar toolBar){
+    void addExampleButtons1(ToolBar toolBar){
         toolBar.setDefualtButtonsColor(Color.white);
         toolBar.createButton(0, 0, "Example 1", 150, 50);
         toolBar.createButton(1, 0, "Example 2", 150, 50);
         toolBar.createButton(2, 0, "Example 3", 150, 50);
+    }
+        void addExampleButtons2(ToolBar toolBar){
+        toolBar.setDefualtButtonsColor(Color.white);
+        toolBar.createButton(0, 0, "Example 4", 100, 100);
+        toolBar.createButton(0, 1, "Example 5", 100, 100);
+        toolBar.createButton(0, 2, "Example 6", 100, 100);
     }
 
 }
