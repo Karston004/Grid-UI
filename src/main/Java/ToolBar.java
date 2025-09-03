@@ -2,19 +2,37 @@ package src.main.java;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class ToolBar extends JPanel {
+    //Class Attributes
+    Color defualtButtonColor = Color.white;
+    ArrayList<JButton> buttons;
+
 
     ToolBar () {
         super(new GridBagLayout());
         setBackground(Color.GRAY);
-        createButtons();
+        buttons = new ArrayList<JButton>();
     }
 
+    void setButtonsColor(Color color){
+        defualtButtonColor = color;
+    }
+
+    void createButton(int gridx, int gridy, String text){
+        JButton newButton = new JButton("text");
+        newButton.setBackground(defualtButtonColor);
+        buttons.add(newButton);
+    }
+
+    /* 
     void createButtons(){
         JButton exampleButton0 = new JButton("Example 0");
         exampleButton0.setBackground(Color.WHITE);
@@ -33,5 +51,5 @@ public class ToolBar extends JPanel {
         exampleButton3.setPreferredSize(new Dimension(150,50));
         add(exampleButton3);
     }
-
+    */
 }
