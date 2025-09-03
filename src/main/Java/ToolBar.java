@@ -22,18 +22,18 @@ public class ToolBar extends JPanel {
         buttons = new ArrayList<JButton>();
     }
 
-    void setDefualtButtonsColor(Color color){
+    public void setDefualtButtonsColor(Color color){
         defualtButtonColor = color;
     }
 
-    void setAllButtonsColor(Color c){
+    public void setAllButtonsColor(Color c){
         for (int i = 0; i < buttons.size(); i++){
             buttons.get(i).setBackground(c);
         }
     }
 
-    void createButton(int gridx, int gridy, String text, int width, int height){
-        JButton newButton = new JButton("text");
+    public void createButton(int gridx, int gridy, String text, int width, int height){
+        JButton newButton = new JButton(text);
         newButton.setBackground(defualtButtonColor);
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
@@ -43,6 +43,7 @@ public class ToolBar extends JPanel {
         c.gridy = gridy;
         newButton.setPreferredSize(new Dimension(width,height));
         buttons.add(newButton);
+        add(newButton);
     }
 
     /* 
