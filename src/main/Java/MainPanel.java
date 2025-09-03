@@ -62,7 +62,15 @@ public class MainPanel extends JPanel {
         c.weighty = 0;
         c.gridx = gridx;
         c.gridy = gridy;
+        addExampleButtons(toolBar);
         add(toolBar,c);
+    }
+
+    void addExampleButtons(ToolBar toolBar){
+        toolBar.setDefualtButtonsColor(Color.white);
+        toolBar.createButton(0, 0, "Example 1", 150, 50);
+        toolBar.createButton(1, 0, "Example 2", 150, 50);
+        toolBar.createButton(2, 0, "Example 3", 150, 50);
     }
 
 }
