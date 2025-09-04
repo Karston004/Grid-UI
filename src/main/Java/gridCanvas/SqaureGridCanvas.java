@@ -13,7 +13,7 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
     private int offsetX;
     private int offsetY;
 
-    public record Point(int x, int y) {}
+
 
     public SqaureGridCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap) {
 		super(gridx, gridy, colorMap);
@@ -50,17 +50,20 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
     };
 
     @Override
-    protected void mPressed(MouseEvent e){
+    protected int[][] mPressed(MouseEvent e){
         System.out.println(e.getX() + " " + e.getY() + " " + getWidth() + " " + getHeight());
         System.out.println(getCell(e));
+        return grid;
     };
     
     @Override
-    protected void mReleased(MouseEvent e){
+    protected int[][] mReleased(MouseEvent e){
+        return grid;
     };
 
     @Override
-    protected void mDragged(MouseEvent e){
+    protected int[][] mDragged(MouseEvent e){
+        return grid;
     };
 
 }

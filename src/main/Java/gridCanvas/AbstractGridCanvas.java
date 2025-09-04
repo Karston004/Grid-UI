@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 public abstract class AbstractGridCanvas extends JPanel{
     HashMap<Integer, Color> colorMap;
     int grid[][];
+    public record Point(int x, int y) {}
 
     public AbstractGridCanvas (int gridWidth, int gridHeight, HashMap<Integer, Color> colorMap) {
         grid = new int[gridWidth][gridHeight];
@@ -48,9 +49,9 @@ public abstract class AbstractGridCanvas extends JPanel{
         grid = g;
     }
 
-    protected abstract void mPressed(MouseEvent e);
-    protected abstract void mReleased(MouseEvent e);
-    protected abstract void mDragged(MouseEvent e);
+    protected abstract int[][] mPressed(MouseEvent e);
+    protected abstract int[][] mReleased(MouseEvent e);
+    protected abstract int[][] mDragged(MouseEvent e);
     
     //Classes that extend this should override the paintComponent
     

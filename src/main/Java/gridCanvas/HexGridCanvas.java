@@ -55,15 +55,18 @@ public class HexGridCanvas extends AbstractGridCanvas {
 
 
     @Override
-    protected void mPressed(MouseEvent e){
+    protected int[][] mPressed(MouseEvent e){
+        return grid;
     };
     
     @Override
-    protected void mReleased(MouseEvent e){
+    protected int[][] mReleased(MouseEvent e){
+        return grid;
     };
 
     @Override
-    protected void mDragged(MouseEvent e){
+    protected int[][] mDragged(MouseEvent e){
+        return grid;
     };
 }
 
