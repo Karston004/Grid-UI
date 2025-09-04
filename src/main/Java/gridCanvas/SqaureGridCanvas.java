@@ -40,8 +40,8 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
     }
 
     private Point getCell(MouseEvent e){
-        int x = (e.getX()-this.offsetX)/cellSize;
-        int y = (e.getY()-this.offsetY)/cellSize;
+        int x = (int)(e.getX() - this.offsetX + (int)(cellSize * 0.025))/cellSize;
+        int y = (e.getY() - this.offsetY + (int)(cellSize * 0.025))/cellSize;
 
         if (x >= this.grid.length || e.getX() < this.offsetX) x = -1;
         if (y >= this.grid[0].length || e.getY() < this.offsetY) y = -1;
