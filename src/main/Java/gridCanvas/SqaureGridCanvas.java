@@ -8,6 +8,12 @@ import java.awt.event.MouseEvent;
 
 //A Panel used for displaying grids using 2D graphics 
 public class SqaureGridCanvas extends AbstractGridCanvas {
+    //local varibles
+    private int cellSize;
+    private int offsetX;
+    private int offsetY;
+
+    public record Point(int x, int y) {}
 
     public SqaureGridCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap) {
 		super(gridx, gridy, colorMap);
@@ -18,10 +24,12 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
     
-    int cellSize = Math.min(getWidth()/grid.length, getHeight()/grid[0].length);
+    //Info saved locally to allow clicks to be asinged to a cell without doing their own calculations
+    //fine max cell size based on width or height constraint
+    this.cellSize = Math.min(getWidth()/grid.length, getHeight()/grid[0].length);
 
-    int offsetX = (getWidth() - grid.length*cellSize)/2;
-    int offsetY = (getHeight()- grid[0].length*cellSize)/2;
+    this.offsetX = (getWidth() - grid.length*cellSize)/2;
+    this.offsetY = (getHeight()- grid[0].length*cellSize)/2;
 
     for (int x = 0; x < grid.length; x++) {
         for (int y = 0; y < grid[0].length; y++) {
@@ -30,8 +38,21 @@ public class SqaureGridCanvas extends AbstractGridCanvas {
             }
         }
     }
+
+    private Point getCell(MouseEvent e){
+        int x = (e.getX()-this.offsetX)/cellSize;
+        int y = (e.getY()-this.offsetY)/cellSize;
+
+        if (x >= this.grid.length || e.getX() < this.offsetX) x = -1;
+        if (y >= this.grid[0].length || e.getY() < this.offsetY) y = -1;
+        
+        return new Point(x, y);
+    };
+
     @Override
     protected void mPressed(MouseEvent e){
+        System.out.println(e.getX() + " " + e.getY() + " " + getWidth() + " " + getHeight());
+        System.out.println(getCell(e));
     };
     
     @Override

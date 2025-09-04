@@ -48,7 +48,7 @@ public class MainPanel extends JPanel {
     //Creates grid canvas and adds it to display
     // gridx/gridy is x y postion on main panel's gridBagLayout
     void addMainCanvas(int gridx, int gridy, HashMap<Integer, Color> colorMap){
-        gridCanvas = new HexGridCanvas(0, 0, colorMap);
+        gridCanvas = new SqaureGridCanvas(0, 0, colorMap);
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 10;
