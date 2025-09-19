@@ -25,9 +25,9 @@ public class MainPanel extends JPanel {
         setBorder(BorderFactory.createLineBorder(Color.RED));
 
         addMainCanvas(1, 1, defaultColorMap());
-        toolBarTop = addToolBar(1, 0);
+        toolBarTop = addToolBar(1, 0, 1,1);
         addExampleButtons1(toolBarTop);
-        toolBarSide = addToolBar(2, 1);
+        toolBarSide = addToolBar(2, 0, 1, 2);
         addExampleButtons2(toolBarSide);
         
         //Example grid - temp code
@@ -60,12 +60,14 @@ public class MainPanel extends JPanel {
 
     //Creates ToolBar
     // gridx/gridy is x y postion on main panel's gridBagLayout
-    ToolBar addToolBar(int gridx, int gridy){
+    ToolBar addToolBar(int gridx, int gridy, int gridWidth ,int gridHeight){
         ToolBar toolBar = new ToolBar();
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 0;
         c.weighty = 0;
+        c.gridwidth = gridWidth;
+        c.gridheight = gridHeight;
         c.gridx = gridx;
         c.gridy = gridy;
         add(toolBar,c);
